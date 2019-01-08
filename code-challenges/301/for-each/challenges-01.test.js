@@ -56,12 +56,17 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const removeOne = (num, arr) => {
-  // Solution code here...
-}
+  if (num % 3 === 2) {
+    arr.pop();
+  }
+};
 
 const removeElements = (arr, callback) => {
-  // Solution code here...
-}
+  for (let i = 0; i < arr.length + 1; i++) {
+    callback(i, arr);
+  }
+  return arr;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -70,8 +75,8 @@ Write a function named removeWithForEach that produces the same output as challe
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithForEach = (arr, callback) => {
-  // Solution code here...
-}
+  arr.forEach(callback());
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
