@@ -145,11 +145,14 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   const order = [0, 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  arr.sort((a,b) => {
-    console.log(order.indexOf(b.dayOfWeek),order.indexOf(a.dayOfWeek),order.indexOf(b.dayOfWeek) - order.indexOf(a.dayOfWeek));
-    order.indexOf(b.dayOfWeek) - order.indexOf(a.dayOfWeek);
-    return arr;
+  arr.forEach(meeting => {
+    meeting.dayOfWeek = order.indexOf(meeting.dayOfWeek);
   });
+  arr.sort((a,b) => (a.dayOfWeek - b.dayOfWeek));
+  arr.forEach(meeting => {
+    meeting.dayOfWeek = order[meeting.dayOfWeek];
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -163,7 +166,17 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
-  // Solution code here...
+  const order = [0, 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  arr.forEach(meeting => {
+    meeting.dayOfWeek = order.indexOf(meeting.dayOfWeek);
+  });
+  arr.sort((a,b) => (a.end - b.end));
+  arr.sort((a,b) => (a.start - b.start));
+  arr.sort((a,b) => (a.dayOfWeek - b.dayOfWeek));
+  arr.forEach(meeting => {
+    meeting.dayOfWeek = order[meeting.dayOfWeek];
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
