@@ -165,7 +165,8 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
+  str = str.substring(0, str.length - numberOfCharacters);
+  return str;
 };
 
 
@@ -177,7 +178,8 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 
 const totalSumCSV = (str) => {
   let total = 0;
-  // Solution code here...
+  let array = str.split(',');
+  array.forEach( number => total = total + parseFloat(number));
   return total;
 };
 
@@ -191,7 +193,13 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
 const removeVowels = (str) => {
-  // Solution code here...
+  let pattern = /[aeiou]/gmi;
+  let array = str.match(pattern);
+  let newStr = '';
+  for (let i = 0; i < array.length; i++) {
+    newStr = str.replace(array[i],'');
+  }
+  return newStr;
 };
 
 /* ------------------------------------------------------------------------------------------------
