@@ -161,13 +161,7 @@ const characters = [
 ];
 
 const getCharactersWithoutChildren = (arr) => {
-  const houses = [];
-  arr.filter( char => {
-    if(!char.children) {
-      houses.push(char);
-    }
-  });
-  return houses;
+  return arr.filter( char => { if(!char.children) return char; });
 };
 
 /* ------------------------------------------------------------------------------------------------
