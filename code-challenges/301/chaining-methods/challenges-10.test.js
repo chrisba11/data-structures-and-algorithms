@@ -57,9 +57,15 @@ const divisibleByFiveTwoToThePower = (input) => {
     middle.push(array.filter(num => num % 5 === 0));
   });
   middle.forEach(array => {
-    final.push( array.forEach(num => typeof(num) === 'number' ? Math.pow(2, num) : '') );
+    final.push( array.forEach(num => {
+      if (typeof(num) === 'number') {
+        // console.log(Math.pow(2, num));
+      } else {
+        // console.log('type of:', num);
+      }
+    }));
   });
-  console.log(final);
+  // console.log(final);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -145,8 +151,18 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
-}
+  const height = data.reduce((accumulator, current) => {
+    if (parseInt(accumulator.height) > parseInt(current.height)) {
+      console.log('acc:', accumulator.height);
+      console.log('cur:', current.height);
+      accumulator.height = current.height;
+      return accumulator;
+    } else {
+      return accumulator;
+    }
+  });
+  return height.name;
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
