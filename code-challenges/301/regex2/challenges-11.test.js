@@ -30,7 +30,7 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  const pattern = /[a-zA-Z0-9]*\.{0,1}[a-zA-Z0-9]+@{1}[a-zA-Z0-9]*(.net|.com|.org)$/gm;
+  const pattern = /[a-zA-Z0-9]*\.?[a-zA-Z0-9]+@{1}[a-zA-Z0-9]*(.net|.com|.org)$/gm;
   return pattern.test(email);
 };
 
@@ -56,7 +56,8 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  const pattern = /(^\d{3}|^\(\d{3}\))(\)| |\) |-)?\d{3}(-| )?\d{4}$/gm;
+  return pattern.test(phoneNumber);
 };
 
 /* ------------------------------------------------------------------------------------------------
