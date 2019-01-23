@@ -45,7 +45,14 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let finalArray = [];
+  data.forEach(hour => {
+    finalArray.push({sales: `${hour} cookies`});
+  });
+  hours.forEach(hour => {
+    finalArray[hours.indexOf(hour)].time = hour;
+  });
+  return finalArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,8 +74,8 @@ const errands = [
 ]
 
 const howManyTreats = (arr) => {
-  // Solution code here...
-}
+  return arr[2].items[1].quantity;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -89,8 +96,8 @@ The top row of the board is considered row zero and row numbers increase as they
 ------------------------------------------------------------------------------------------------ */
 
 const battleship = (board, row, col) => {
-  //  Solution code here...
-}
+  return board[row][col] === '#' ? 'hit' : 'miss';
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -101,8 +108,12 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
-}
+  return numbers.reduce((accumulator, current) => {
+    return accumulator * current.reduce((accumulator, current) => {
+      return accumulator * current;
+    });
+  },1);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
