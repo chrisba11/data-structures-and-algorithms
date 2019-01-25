@@ -104,11 +104,25 @@ Here is an example of the input:
   {name: 'Tote bag', price: 15}
 ];
 
-This data could be could be sorted by name or price.
+This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // Solution code here...
+  arr.sort((object1, object2) => {
+    if (typeof object1[property] === 'number') {
+      return object1[property] - object2[property];
+    } else if (typeof object1[property] === 'string') {
+      const itemA = object1[property];
+      const itemB = object2[property];
+      if(itemA < itemB) {
+        return -1;
+      } else if(itemA > itemB) {
+        return 1;
+      }
+      return 0;
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -124,8 +138,9 @@ https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
-// Solution code here...
-}
+  const regex = /^(https:\/\/)/gm;
+  return regex.test(url);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
