@@ -81,11 +81,17 @@ let starWarsData = [{
   eye_color: 'none',
   birth_year: '27BBY',
   gender: 'n/a'
-}]
+}];
 
 let biggerThanLuke = (arr) => {
-  // Solution code here...
-}
+  let array = [];
+  arr.forEach(object => {
+    if (parseInt(object.mass) > parseInt(arr[0].mass)) {
+      array.push(object.name);
+    }
+  });
+  return array.join(' - ');
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
