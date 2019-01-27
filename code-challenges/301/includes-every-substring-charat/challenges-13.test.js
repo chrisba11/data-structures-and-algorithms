@@ -33,7 +33,7 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  return arr.map(string => string.)
+  return arr.map(string => string.replace(/[() -]/gm, ''));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,7 +45,13 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let newString = '';
+  for (let i = 0; i < str.length; i++) {
+    if (i % 2 === 1) {
+      newString += str[i];
+    }
+  }
+  return newString;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,7 +61,8 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  let final = arr.map(string => string.includes(':)') ? true : false);
+  return final.includes(false) ? false : true;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,7 +72,7 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
-  // Solution code here...
+  return arr.filter(string => string.includes(target));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -75,7 +82,8 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
-  // Solution code here...
+  let final = arr.map(string => string.includes(target));
+  return final.includes(false) ? false : true;
 };
 
 /* ------------------------------------------------------------------------------------------------
