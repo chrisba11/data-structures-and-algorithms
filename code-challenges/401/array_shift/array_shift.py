@@ -18,7 +18,9 @@ if __name__ == "__main__":
     input_array = []
 
     for i in range(array_count):
-        input_array.append(input('Give me a value to put in the original array. '))
+        input_array.append(input(
+            'Give me a value to put in the original array. '
+            ))
 
     value_to_add = input('What value would you like to add to the array? ')
 
