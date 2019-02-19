@@ -17,3 +17,9 @@ def test_works_with_empty_strings():
     actual = insert_shift_array(['', '', '', ''], 'A')
     expected = ['', '', 'A', '', '']
     assert actual == expected
+
+
+def test_works_with_adding_list():
+    actual = insert_shift_array(['A', 'B', 'C', 'D'], [1, 2, 3, 4, 5])
+    expected = ['A', 'B', [1, 2, 3, 4, 5], 'C', 'D']
+    assert actual == expected
