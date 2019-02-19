@@ -1,10 +1,10 @@
-array_count = input('How many elements in array?')
-input_array = []
+# array_count = input('How many elements in array?')
+# input_array = []
 
-for i in range(count):
-    input_array.append(int(input('Give me a value to put in the original array')))
+# for i in range(count):
+#     input_array.append(int(input('Give me a value to put in the original array')))
 
-value_to_add = input('What value would you like to add to the array?')
+# value_to_add = input('What value would you like to add to the array?')
 
 
 def insert_shift_array(arr, val):
