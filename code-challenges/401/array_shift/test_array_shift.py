@@ -13,8 +13,7 @@ def test_works_with_strings_and_numbers():
     assert actual == expected
 
 
-def test_works_with_all_empty_strings():
-    actual = insert_shift_array(['', '', '', ''], '')
-    expected = ['', '', '', '', '']
+def test_works_with_empty_strings():
+    actual = insert_shift_array(['', '', '', ''], 'A')
+    expected = ['', '', 'A', '', '']
     assert actual == expected
-
