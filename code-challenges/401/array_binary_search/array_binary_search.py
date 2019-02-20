@@ -3,7 +3,6 @@ def binary_search(arr, val):
     midpoint = count // 2
     start_index = 0
     end_index = count - 1
-    new_mid = midpoint
 
     while val != arr[midpoint] and count > 1:
         if val > arr[midpoint]:
