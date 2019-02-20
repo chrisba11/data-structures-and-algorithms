@@ -15,4 +15,4 @@ Time = O(log(n))
 Space = O(1)
 
 ## Solution
-![array_shift image](../assets/array_binary_search.jpg)
+![array_binary_search image](../assets/array_binary_search.jpg)
