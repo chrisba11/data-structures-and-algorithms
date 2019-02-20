@@ -11,8 +11,8 @@ Write a function called `insertShiftArray` which takes in an array and the value
 We decided to iterate through the original array, adding each element to a new array. When we hit the middle of the array, we add the new value to the new array, and then we continue iterating through the original array, appending the values to the new array.
 
 ## Efficiency
-Time = O(n)
-Space = O(n)
+Time = O(log(n))
+Space = O(1)
 
 ## Solution
-![array_shift image](../assets/array_shift.jpg)
+![array_binary_search image](../assets/array_binary_search.jpg)
