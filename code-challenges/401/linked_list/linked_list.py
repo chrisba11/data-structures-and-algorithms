@@ -19,10 +19,8 @@ class LinkedList():
             self.head = node
         else:
             current = self.head
-            while current._next:
-                current = current._next
-
-            current._next = node
+            self.head = node
+            self.head._next = current
 
     def includes(self, data):
         """
@@ -48,6 +46,34 @@ class LinkedList():
                 output += ', ' + current.data
             current = current._next
         return output
+
+    def append(self, data):
+        """
+
+        """
+        node = Node(data)
+        if not self.head:
+            self.head = node
+        else:
+            current = self.head
+            while current._next:
+                current = current._next
+            current._next = node
+
+    def add_before(self, data, new_data):
+        """
+
+        """
+        node = Node(new_data)
+        if self.head == data:
+            self.insert(new_data)
+        else:
+            current = self.head
+            while current._next != data:
+                current = current._next
+            node._next = current._next
+            current._next = node
+
 
 
 class Node():
