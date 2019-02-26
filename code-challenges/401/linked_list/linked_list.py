@@ -32,11 +32,11 @@ class LinkedList():
                 if current.data == lookup:
                     print('included!')
                     return True
-                current = current._next
-            else:
-                if current.data == lookup:
-                    print('included!')
-                    return True
+                else:
+                    current = current._next
+            if current.data == lookup:
+                print('included!')
+                return True
         except:
             print('no ._next')
 
