@@ -112,6 +112,6 @@ def test_add_after():
     courses.append('Code 102')
     courses.append('Code 201')
     courses.append('Code 401: Python')
-    courses.add_after('Code 301', 'Code 201')
+    courses.add_after('Code 201', 'Code 301')
 
     assert courses.print() == 'Code 101, Code 102, Code 201, Code 301, Code 401: Python'

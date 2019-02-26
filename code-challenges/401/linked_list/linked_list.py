@@ -10,11 +10,11 @@ class LinkedList():
 
     head = None
 
-    def insert(self, data):
+    def insert(self, new_data):
         """
-        Method to create a node in the linked list with a .data value of *data*.
+        Method to create a node in the linked list with a .data value of *new_data*.
         """
-        node = Node(data)
+        node = Node(new_data)
         if not self.head:
             self.head = node
         else:
@@ -22,16 +22,23 @@ class LinkedList():
             self.head = node
             self.head._next = current
 
-    def includes(self, data):
+    def includes(self, lookup):
         """
-        Method to see if there is a node in the linked list with a .data value of *data*.
+        Method to see if there is a node in the linked list with a .data value of *lookup*.
         """
         current = self.head
-        while current._next:
-            if current.data == data:
-                return True
-
-            current = current._next
+        try:
+            while current._next:
+                if current.data == lookup:
+                    print('included!')
+                    return True
+                current = current._next
+            else:
+                if current.data == lookup:
+                    print('included!')
+                    return True
+        except:
+            print('no ._next')
 
     def print(self):
         """
@@ -47,11 +54,11 @@ class LinkedList():
             current = current._next
         return output
 
-    def append(self, data):
+    def append(self, new_data):
         """
 
         """
-        node = Node(data)
+        node = Node(new_data)
         if not self.head:
             self.head = node
         else:
@@ -60,19 +67,24 @@ class LinkedList():
                 current = current._next
             current._next = node
 
-    def add_before(self, data, new_data):
+    def add_before(self, lookup, new_data):
         """
 
         """
         node = Node(new_data)
-        if self.head == data:
-            self.insert(new_data)
+        if self.includes(lookup):
+            if self.head == lookup:
+                self.insert(new_data)
+            else:
+                current = self.head
+                while current._next.data != lookup:
+                    current = current._next
+                node._next = current._next
+                current._next = node
         else:
-            current = self.head
-            while current._next != data:
-                current = current._next
-            node._next = current._next
-            current._next = node
+            print('Lookup data not found in list.')
+
+
 
 
 
