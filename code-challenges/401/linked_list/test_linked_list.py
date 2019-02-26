@@ -31,8 +31,8 @@ def test_insert_two():
     Can properly insert multiple nodes into the linked list
     """
     courses = LinkedList()
-    courses.insert('Code 201')
     courses.insert('Code 301')
+    courses.insert('Code 201')
 
     assert courses.head.data == 'Code 201'
     assert courses.head._next.data == 'Code 301'
@@ -67,10 +67,79 @@ def test_print():
     Can properly return a collection of all the values that exist in the linked list
     """
     courses = LinkedList()
-    courses.insert('Code 101')
-    courses.insert('Code 102')
-    courses.insert('Code 201')
-    courses.insert('Code 301')
     courses.insert('Code 401: Python')
+    courses.insert('Code 301')
+    courses.insert('Code 201')
+    courses.insert('Code 102')
+    courses.insert('Code 101')
 
     assert courses.print() == 'Code 101, Code 102, Code 201, Code 301, Code 401: Python'
+
+
+def test_append():
+    """
+
+    """
+    courses = LinkedList()
+    courses.insert('Code 201')
+    courses.insert('Code 102')
+    courses.insert('Code 101')
+    courses.append('Code 301')
+
+    assert courses.print() == 'Code 101, Code 102, Code 201, Code 301'
+
+
+def test_add_before():
+    """
+
+    """
+    courses = LinkedList()
+    courses.append('Code 101')
+    courses.append('Code 102')
+    courses.append('Code 201')
+    courses.append('Code 401: Python')
+    courses.add_before('Code 401: Python', 'Code 301')
+
+    assert courses.print() == 'Code 101, Code 102, Code 201, Code 301, Code 401: Python'
+
+
+def test_add_before_first():
+    """
+
+    """
+    courses = LinkedList()
+    courses.append('Code 101')
+    courses.append('Code 102')
+    courses.append('Code 201')
+    courses.append('Code 401: Python')
+    courses.add_before('Code 101', 'Code 301')
+
+    assert courses.print() == 'Code 301, Code 101, Code 102, Code 201, Code 401: Python'
+
+
+def test_add_after():
+    """
+
+    """
+    courses = LinkedList()
+    courses.append('Code 101')
+    courses.append('Code 102')
+    courses.append('Code 201')
+    courses.append('Code 401: Python')
+    courses.add_after('Code 201', 'Code 301')
+
+    assert courses.print() == 'Code 101, Code 102, Code 201, Code 301, Code 401: Python'
+
+
+def test_add_after_last():
+    """
+
+    """
+    courses = LinkedList()
+    courses.append('Code 101')
+    courses.append('Code 102')
+    courses.append('Code 201')
+    courses.append('Code 401: Python')
+    courses.add_after('Code 401: Python', 'Code 301')
+
+    assert courses.print() == 'Code 101, Code 102, Code 201, Code 401: Python, Code 301'

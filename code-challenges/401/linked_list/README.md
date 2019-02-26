@@ -1,17 +1,21 @@
-# linked_list
+# Linked List Insertions
+Inserting new nodes into a linked list.
 
-**Author**: Chris Ball
-**Version**: 1.0.0
+## Challenge
+Write methods for adding new nodes to the linked list at the end or before or after a node with the given value.
 
-## Overview
-This is a module to create a linked list. It has methods on the linked list that allow a user to generate new nodes with specified values.
+## Approach
+For the .append() method, we traversed the linked list and found the location where the node._next value was falsy and then we inserted the node after that node.
 
-## Getting Started
-To use this module, a user would have to import Linked_List from the module into their project. Once imported, they would be able to generate a linked list and use any of the included methods to modify that list or print it out.
+For the .add_before() method, we traversed the linked list and found the node with a .next whose value matched the specified value, then we inserted the new node after that current node.
 
-## Architecture
-This was tested using pytest.
+For the .add_after() method, we traversed the linked list and found the node with a value that matched the specified value, then we inserted the node after that current node.
 
-## API
+## Efficiency
+Time O(n)
+Space O(1)
+
+## Solution
+![ll_insertions image](../assets/ll_insertions.jpeg)
 
 

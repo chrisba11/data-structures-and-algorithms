@@ -10,30 +10,35 @@ class LinkedList():
 
     head = None
 
-    def insert(self, data):
+    def insert(self, new_data):
         """
-        Method to create a node in the linked list with a .data value of *data*.
+        Method to create a node in the linked list with a .data value of *new_data* at the beginning of the list.
         """
-        node = Node(data)
+        node = Node(new_data)
         if not self.head:
             self.head = node
         else:
             current = self.head
-            while current._next:
-                current = current._next
+            self.head = node
+            self.head._next = current
 
-            current._next = node
-
-    def includes(self, data):
+    def includes(self, lookup):
         """
-        Method to see if there is a node in the linked list with a .data value of *data*.
+        Method to see if there is a node in the linked list with a .data value of *lookup*.
         """
         current = self.head
-        while current._next:
-            if current.data == data:
+        try:
+            while current._next:
+                if current.data == lookup:
+                    print('included!')
+                    return True
+                else:
+                    current = current._next
+            if current.data == lookup:
+                print('included!')
                 return True
-
-            current = current._next
+        except:
+            print('no ._next')
 
     def print(self):
         """
@@ -48,6 +53,50 @@ class LinkedList():
                 output += ', ' + current.data
             current = current._next
         return output
+
+    def append(self, new_data):
+        """
+        Method to create a node in the linked list with a .data value of *new_data* at the end of the list.
+        """
+        node = Node(new_data)
+        if not self.head:
+            self.head = node
+        else:
+            current = self.head
+            while current._next:
+                current = current._next
+            current._next = node
+
+    def add_before(self, lookup, new_data):
+        """
+        Method to create a node in the linked list with a .data value of *new_data* before the node with the .data value of *lookup* in the list.
+        """
+        node = Node(new_data)
+        if self.includes(lookup):
+            if self.head.data == lookup:
+                self.insert(new_data)
+            else:
+                current = self.head
+                while current._next.data != lookup:
+                    current = current._next
+                node._next = current._next
+                current._next = node
+        else:
+            print('Lookup data not found in list.')
+
+    def add_after(self, lookup, new_data):
+        """
+        Method to create a node in the linked list with a .data value of *new_data* after the node with the .data value of *lookup* in the list.
+        """
+        node = Node(new_data)
+        if self.includes(lookup):
+            current = self.head
+            while current.data != lookup:
+                current = current._next
+            node._next = current._next
+            current._next = node
+        else:
+            print('Lookup data not found in list.')
 
 
 class Node():
