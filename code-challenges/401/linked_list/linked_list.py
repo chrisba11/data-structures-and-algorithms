@@ -100,7 +100,7 @@ class LinkedList():
 
     def k_from_end(self, k):
         """
-
+        Method to return the data of the kth node in a linked list.
         """
         total_nodes = 0
         position = 0
