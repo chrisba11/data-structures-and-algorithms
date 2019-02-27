@@ -78,7 +78,7 @@ def test_print():
 
 def test_append():
     """
-
+    Can add a new node to the end of the linked list.
     """
     courses = LinkedList()
     courses.insert('Code 201')
@@ -91,7 +91,7 @@ def test_append():
 
 def test_add_before():
     """
-
+    Can add a new node before an existing node with the specified value.
     """
     courses = LinkedList()
     courses.append('Code 101')
@@ -105,7 +105,7 @@ def test_add_before():
 
 def test_add_before_first():
     """
-
+    Can add a new node before the first node, if the first node value matches specified value.
     """
     courses = LinkedList()
     courses.append('Code 101')
@@ -119,7 +119,7 @@ def test_add_before_first():
 
 def test_add_after():
     """
-
+    Can add a new node after an existing node with the specified value.
     """
     courses = LinkedList()
     courses.append('Code 101')
@@ -133,7 +133,7 @@ def test_add_after():
 
 def test_add_after_last():
     """
-
+    Can add a new node after the last node, if the last node value matches specified value.
     """
     courses = LinkedList()
     courses.append('Code 101')
@@ -143,3 +143,54 @@ def test_add_after_last():
     courses.add_after('Code 401: Python', 'Code 301')
 
     assert courses.print() == 'Code 101, Code 102, Code 201, Code 401: Python, Code 301'
+
+
+def test_0_from_end():
+    """
+    Can return value of node 0 nodes in from the end.
+    """
+    courses = LinkedList()
+    courses.append('Code 101')
+    courses.append('Code 102')
+    courses.append('Code 201')
+    courses.append('Code 301')
+    courses.append('Code 401: Python')
+
+    assert courses.k_from_end(0) == 'Code 401: Python'
+
+
+def test_2_from_end():
+    """
+    Can return value of node 2 nodes in from the end.
+    """
+    courses = LinkedList()
+    courses.append('Code 101')
+    courses.append('Code 102')
+    courses.append('Code 201')
+    courses.append('Code 301')
+    courses.append('Code 401: Python')
+
+    assert courses.k_from_end(2) == 'Code 201'
+
+
+def test_k_from_end_k_greater_than_length():
+    """
+    Will return an Exception if the k value is greater than the number of nodes.
+    """
+    courses = LinkedList()
+    courses.append('Code 101')
+    courses.append('Code 102')
+    courses.append('Code 201')
+    courses.append('Code 301')
+    courses.append('Code 401: Python')
+
+    assert courses.k_from_end(6) == 'Exception'
+
+
+def test_k_from_end_empty():
+    """
+    Will return 'empty' if linked list has no nodes.
+    """
+    courses = LinkedList()
+
+    assert courses.k_from_end(6) == 'Empty Linked List'

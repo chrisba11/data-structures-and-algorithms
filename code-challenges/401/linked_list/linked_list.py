@@ -98,6 +98,29 @@ class LinkedList():
         else:
             print('Lookup data not found in list.')
 
+    def k_from_end(self, k):
+        """
+        Method to return the data of the kth node in a linked list.
+        """
+        total_nodes = 0
+        position = 0
+        current = self.head
+        while current and current._next:
+            total_nodes += 1
+            current = current._next
+        if current and not current._next:
+            total_nodes += 1
+        else:
+            return 'Empty Linked List'
+        if k < total_nodes:
+            position = total_nodes - k
+        else:
+            return 'Exception'
+        current = self.head
+        for i in range(1, position):
+            current = current._next
+        return current.data
+
 
 class Node():
     def __init__(self, data):
