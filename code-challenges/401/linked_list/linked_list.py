@@ -98,6 +98,17 @@ class LinkedList():
         else:
             print('Lookup data not found in list.')
 
+    def k_from_end(self, k):
+        """
+
+        """
+        total_nodes = 0
+        position = 0
+        current = self.head
+        while current._next:
+            total_nodes += 1
+            
+
 
 class Node():
     def __init__(self, data):
