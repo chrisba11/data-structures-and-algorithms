@@ -121,6 +121,11 @@ class LinkedList():
             current = current._next
         return current.data
 
+    def merge_lists():
+        """
+
+        """
+
 
 class Node():
     def __init__(self, data):
