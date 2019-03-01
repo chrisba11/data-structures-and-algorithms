@@ -3,7 +3,6 @@ from linked_list import Node
 import pytest
 
 
-@pytest.fixture()
 def create_linked_lists():
     list_1 = ll()
     list_1.append('1')
@@ -24,7 +23,8 @@ def create_linked_lists():
     list_4 = ll()
 
 
-def text_ll_merge_equal_length_lists(create_linked_lists):
+def text_ll_merge_equal_length_lists():
+    create_linked_lists()
     assert print(merge_lists(list_1, list_2)) == '1, A, 2, B, 3, C, 4, D'
 
 
