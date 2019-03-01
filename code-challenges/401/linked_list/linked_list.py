@@ -69,7 +69,8 @@ class LinkedList():
 
     def add_before(self, lookup, new_data):
         """
-        Method to create a node in the linked list with a .data value of *new_data* before the node with the .data value of *lookup* in the list.
+        Method to create a node in the linked list with a .data value of *new_data* before the node with the .data
+        value of *lookup* in the list.
         """
         node = Node(new_data)
         if self.includes(lookup):
@@ -86,7 +87,8 @@ class LinkedList():
 
     def add_after(self, lookup, new_data):
         """
-        Method to create a node in the linked list with a .data value of *new_data* after the node with the .data value of *lookup* in the list.
+        Method to create a node in the linked list with a .data value of *new_data* after the node with the .data
+        value of *lookup* in the list.
         """
         node = Node(new_data)
         if self.includes(lookup):
@@ -120,11 +122,6 @@ class LinkedList():
         for i in range(1, position):
             current = current._next
         return current.data
-
-    def merge_lists():
-        """
-
-        """
 
 
 class Node():
