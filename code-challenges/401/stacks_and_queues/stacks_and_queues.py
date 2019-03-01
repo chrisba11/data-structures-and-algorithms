@@ -26,7 +26,7 @@ class Stack():
         Returns *data* value.
         """
         new_node = Node(new_data)
-        if not self.top:
+        if self.top is None:
             self.top = new_node
         else:
             new_node._next = self.top
@@ -37,7 +37,7 @@ class Stack():
         """
         Method to remove the top node from a stack and return the value of its *data* attribute.
         """
-        if self.top:
+        if self.top is not None:
             current = self.top
             self.top = self.top._next
             current._next = None
@@ -49,7 +49,7 @@ class Stack():
         """
         Method to return the value of the *data* attribute from the top node of a stack.
         """
-        if self.top:
+        if self.top is not None:
             return self.top.data
         else:
             return 'Empty Stack'
@@ -63,4 +63,23 @@ class Queue():
     front = None
     rear = None
 
-    
+    def enqueue(self, new_data):
+        new_node = Node(new_data)
+        if self.rear is None:
+            self.rear = new_node
+            self.front = new_node
+        else:
+            self.rear._next = new_node
+            self.rear = new_node
+
+    def dequeue(self):
+        if self.front is not None:
+            current = self.front
+            self.front = self.front._next
+            current._next = None
+            return current.data
+        else:
+            return 'Empty Queue'
+
+    def peek(self):
+        

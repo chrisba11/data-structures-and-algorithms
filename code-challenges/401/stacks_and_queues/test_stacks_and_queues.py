@@ -1,4 +1,4 @@
-from stacks_and_queues import LinkedList, Node, Stack
+from stacks_and_queues import LinkedList, Node, Stack, Queue
 
 
 def test_stack_push_one():
@@ -90,5 +90,55 @@ def test_stack_peek_empty():
     assert hats.peek() == 'Empty Stack'
 
 
-def test_queue_enqueue():
-    
+def test_queue_enqueue_one_front():
+    line = Queue()
+    line.enqueue('Steve')
+
+    assert line.front.data == 'Steve'
+
+
+def test_queue_enqueue_one_rear():
+    line = Queue()
+    line.enqueue('Steve')
+
+    assert line.rear.data == 'Steve'
+
+
+def test_queue_dequeue_return():
+    line = Queue()
+    line.enqueue('Steve')
+
+    assert line.dequeue() == 'Steve'
+
+
+def test_queue_dequeue_new_front():
+    line = Queue()
+    line.enqueue('Steve')
+    line.enqueue('Ted')
+    line.enqueue('Mary')
+    line.enqueue('Pam')
+    line.dequeue()
+
+    assert line.front.data == 'Ted'
+
+
+def test_queue_dequeue_empty():
+    line = Queue()
+
+    assert line.dequeue() == 'Empty Queue'
+
+
+def test_queue_peek():
+    line = Queue()
+    line.enqueue('Steve')
+    line.enqueue('Ted')
+    line.enqueue('Mary')
+    line.enqueue('Pam')
+
+    assert line.peek() == 'Steve'
+
+
+def test_queue_peek_empty():
+    line = Queue()
+
+    assert line.peek() == 'Empty Queue'
