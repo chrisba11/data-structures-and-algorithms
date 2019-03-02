@@ -122,6 +122,19 @@ def test_queue_dequeue_new_front():
     assert line.front.data == 'Ted'
 
 
+def test_queue_dequeue_multiple():
+    line = Queue()
+    line.enqueue('Steve')
+    line.enqueue('Ted')
+    line.enqueue('Mary')
+    line.enqueue('Pam')
+    line.dequeue()
+    line.dequeue()
+    line.dequeue()
+
+    assert line.front.data == 'Pam'
+
+
 def test_queue_dequeue_empty():
     line = Queue()
 

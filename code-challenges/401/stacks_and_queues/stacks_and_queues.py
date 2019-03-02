@@ -82,4 +82,7 @@ class Queue():
             return 'Empty Queue'
 
     def peek(self):
-        
+        if self.front is not None:
+            return self.front.data
+        else:
+            return 'Empty Queue'
