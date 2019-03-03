@@ -1,6 +1,3 @@
-from linked_list import LinkedList
-
-
 class Node():
     """
     Class to create a new node.
@@ -19,10 +16,11 @@ class Stack():
     """
 
     top = None
+    empty = 'Empty Stack'
 
     def push(self, new_data):
         """
-        Method to create a node at the top of a stack with a *data* attribute value equal to *new_data*.
+        Method to add a new node at the top of a stack with a *data* attribute value equal to *new_data*.
         Returns *data* value.
         """
         new_node = Node(new_data)
@@ -43,7 +41,7 @@ class Stack():
             current._next = None
             return current.data
         else:
-            return 'Empty Stack'
+            return empty
 
     def peek(self):
         """
@@ -52,7 +50,7 @@ class Stack():
         if self.top is not None:
             return self.top.data
         else:
-            return 'Empty Stack'
+            return empty
 
 
 class Queue():
@@ -62,8 +60,13 @@ class Queue():
 
     front = None
     rear = None
+    empty = 'Empty Queue'
 
     def enqueue(self, new_data):
+        """
+        Method to add a new node at the *rear* of a queue and return the value of that node's *data* attribute,
+        which will be equal to *new_data*.
+        """
         new_node = Node(new_data)
         if self.rear is None:
             self.rear = new_node
@@ -73,16 +76,22 @@ class Queue():
             self.rear = new_node
 
     def dequeue(self):
+        """
+        Method to remove a node from *rear* of queue and return the value of that node's *data* attribute.
+        """
         if self.front is not None:
             current = self.front
             self.front = self.front._next
             current._next = None
             return current.data
         else:
-            return 'Empty Queue'
+            return empty
 
     def peek(self):
+        """
+        Method to return the value of the front node's *data* attribute.
+        """
         if self.front is not None:
             return self.front.data
         else:
-            return 'Empty Queue'
+            return empty
