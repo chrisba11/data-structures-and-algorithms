@@ -13,5 +13,3 @@ Space O(1)
 
 ## Solution
 ![ll_kth_from_end image](../assets/ll_kth_from_end.jpg)
-
-
