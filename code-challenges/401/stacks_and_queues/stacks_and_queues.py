@@ -41,7 +41,7 @@ class Stack():
             current._next = None
             return current.data
         else:
-            return empty
+            return self.empty
 
     def peek(self):
         """
@@ -50,7 +50,7 @@ class Stack():
         if self.top is not None:
             return self.top.data
         else:
-            return empty
+            return self.empty
 
 
 class Queue():
@@ -85,7 +85,7 @@ class Queue():
             current._next = None
             return current.data
         else:
-            return empty
+            return self.empty
 
     def peek(self):
         """
@@ -94,4 +94,4 @@ class Queue():
         if self.front is not None:
             return self.front.data
         else:
-            return empty
+            return self.empty
