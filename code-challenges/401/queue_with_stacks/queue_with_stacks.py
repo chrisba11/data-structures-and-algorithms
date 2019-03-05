@@ -68,4 +68,17 @@ class Queue():
         """
 
         """
-        
+        stack_one.push(data)
+
+    def dequeue(self):
+        """
+
+        """
+        if stack_two.peek() != 'Empty Stack':
+            return stack_two.pop().data
+        elif stack_one.peek() != 'Empty Stack':
+            while stack_one.peek() != 'Empty Stack':
+                stack_two.push(stack_one.pop().data)
+            return stack_two.pop().data
+        else:
+            return 'Empty Queue'
