@@ -55,7 +55,7 @@ class Stack():
 
 class Queue():
     """
-    Method to generate and modify a new Queue.
+    Class to generate and modify a new Queue.
     """
 
     front = None
@@ -77,7 +77,7 @@ class Queue():
 
     def dequeue(self):
         """
-        Method to remove a node from *rear* of queue and return the value of that node's *data* attribute.
+        Method to remove a node from *front* of queue and return the value of that node's *data* attribute.
         """
         if self.front is not None:
             current = self.front
