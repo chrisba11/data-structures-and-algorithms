@@ -55,18 +55,18 @@ class Queue():
 
 class Animal_shelter():
     """
-
+    Class to instantiate an animal shelter that only takes cats or dogs.
     """
     def __init__(self):
         """
-
+        Method to initialize the shelter with a cat queue and a dog queue.
         """
         self.cats = Queue()
         self.dogs = Queue()
 
     def enqueue(self, species, name):
         """
-
+        Method to add a new cat or dog to their corresponding queue.
         """
         _species = str(species).lower()
         _name = str(name).lower()
@@ -79,7 +79,7 @@ class Animal_shelter():
 
     def dequeue(self, pref):
         """
-
+        Method to remove a cat or dog from their corresponding queue.
         """
         _pref = str(pref).lower()
         if _pref == 'cat':
