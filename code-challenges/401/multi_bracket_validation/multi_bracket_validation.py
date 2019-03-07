@@ -53,6 +53,12 @@ class Stack():
 
 
 def multi_bracket_validation(string):
+    """
+    Function to check the input string for matched bracket sets '{}', '[]', and '()'.
+    If there is a closing bracket for each opening bracket, it will return True.
+    If there is no matching closing bracket for any opening bracket, it will return False.
+    If there is no matching opening bracket for any closing bracket, it will return False.
+    """
     stack = Stack()
 
     for char in string:
