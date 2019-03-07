@@ -75,3 +75,4 @@ def multi_bracket_validation(string):
                 return False
     if stack.peek() is None:
         return True
+    return False
