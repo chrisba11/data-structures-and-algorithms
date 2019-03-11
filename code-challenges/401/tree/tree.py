@@ -85,7 +85,9 @@ class BinarySearchTree(BinaryTree):
     """
     def add(self, data, curr=None):
         """
-        Method to add new node with data attribute = *data*. Will add left of current node if less than, and right of current node if greater than.
+        Method to add new node with data attribute = *data*.
+        Will add left of current node if less than,
+        and right of current node if greater than.
         """
         if not self.root:
             self.root = Node(data)
@@ -119,10 +121,12 @@ class BinarySearchTree(BinaryTree):
         if data == curr.data:
             return True
 
-        if curr.left:
-            self.contains(data, curr.left)
+        if data < curr.data:
+            if curr.left:
+                return self.contains(data, curr.left)
 
-        if curr.right:
-            self.contains(data, curr.right)
+        if data > curr.data:
+            if curr.right:
+                return self.contains(data, curr.right)
 
         return False

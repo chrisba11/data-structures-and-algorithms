@@ -74,3 +74,33 @@ def test_post_order():
     tree.add(3)
     tree.add(4)
     assert tree.post_order(tree.root) == [4, 3, 5, 8, 7, 6]
+
+
+def test_contains_true():
+    """
+    Returns True if value exists in BST.
+    """
+    tree = BinarySearchTree()
+    tree.add(6)
+    tree.add(5)
+    tree.add(7)
+    tree.add(8)
+    tree.add(3)
+    tree.add(4)
+    assert tree.root
+    assert tree.root.data == 6
+    assert tree.contains(8) is True
+
+
+def test_contains_false():
+    """
+    Returns False if value does not exist in BST.
+    """
+    tree = BinarySearchTree()
+    tree.add(6)
+    tree.add(5)
+    tree.add(7)
+    tree.add(8)
+    tree.add(3)
+    tree.add(4)
+    assert tree.contains(9) is False
