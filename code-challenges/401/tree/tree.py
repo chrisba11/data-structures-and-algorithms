@@ -91,6 +91,7 @@ class BinarySearchTree(BinaryTree):
         """
         if not self.root:
             self.root = Node(data)
+            return
 
         if curr is None:
             curr = self.root
@@ -102,7 +103,7 @@ class BinarySearchTree(BinaryTree):
                 else:
                     self.add(data, curr.left)
 
-            if data > curr.data:
+            if data >= curr.data:
                 if not curr.right:
                     curr.right = Node(data)
                 else:
