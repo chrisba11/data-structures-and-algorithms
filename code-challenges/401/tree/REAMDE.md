@@ -1,6 +1,8 @@
 # Binary Trees
 Classes for Binary Tree and Binary Search tree that establish pre-order, post-order, and in-order traversals and the ability to add a value to a tree and check to see if a value exists within a tree.
 
+BinaryTree class also has a method called `breadth_first_traversal` that takes in the tree and runs a breadth first traversal through the tree, printing each node's *data* attribute.
+
 ## Challenge
 - Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
 - Create a BinaryTree class

@@ -18,7 +18,7 @@ class Queue():
     front = None
     rear = None
 
-    def enqueue(self, node):
+    def nq(self, node):
         """
         Method to add node at the *rear* of a queue.
         """
@@ -29,7 +29,7 @@ class Queue():
             self.rear._next = node
             self.rear = node
 
-    def dequeue(self):
+    def dq(self):
         """
         Method to remove a node from *front* of queue and return that node.
         """
@@ -122,7 +122,21 @@ class BinaryTree():
         """
 
         """
-        q = 
+        q = Queue()
+        x = []
+
+        if self.root:
+            q.nq(self.root)
+
+        while q.peek():
+            curr = q.dq()
+            x.append(curr)
+            if curr.left:
+                q.nq(curr.left)
+            if curr.right:
+                q.nq(curr.right)
+
+        print(x)
 
 
 class BinarySearchTree(BinaryTree):
