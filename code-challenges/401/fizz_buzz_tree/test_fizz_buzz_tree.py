@@ -29,4 +29,4 @@ def test_replaces_10_with_buzz():
     tree.add(10)
     fizz_buzz_tree(tree)
 
-    assert tree.root.data == 'Buzz'
+    assert tree.root.right.data == 'Buzz'
