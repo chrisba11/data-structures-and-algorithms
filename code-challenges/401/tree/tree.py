@@ -9,6 +9,7 @@ class Node():
         self.data = data
         self.left = None
         self.right = None
+        self._next = None
 
 
 class Queue():
@@ -37,6 +38,8 @@ class Queue():
             current = self.front
             self.front = self.front._next
             current._next = None
+            if self.front is None:
+                self.rear = None
             return current
         else:
             return None
@@ -130,13 +133,13 @@ class BinaryTree():
 
         while q.peek():
             curr = q.dq()
-            x.append(curr)
+            x.append(curr.data)
             if curr.left:
                 q.nq(curr.left)
             if curr.right:
                 q.nq(curr.right)
 
-        print(x)
+        return x
 
 
 class BinarySearchTree(BinaryTree):

@@ -13,6 +13,8 @@ BinaryTree class also has a method called `breadth_first_traversal` that takes i
 - Define a method named add that accepts a value, and adds a new node with that value in the correct location in the binary search tree.
 - Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
 
+- Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach; print every visited node’s value.
+
 ## Approach
 For the traversals, I used recursion to search through the tree. The only difference was when the node itself was being pressed into the array.
 For the add method, I used recursion to run the function again if the current node had a left or a right, depending on whether the data was less than or greater than the current node's data value.
@@ -21,3 +23,6 @@ For the contains method, I used recursion to run the function again if the data 
 ## Efficiency
 The traversals are all O(n) for time and space.
 The add and contains methods are O(log(n)) for time and O(1) for space.
+
+## Solution
+![breadth_first_traversal image](../assets/breadth_first_traversal.jpg)
