@@ -10,6 +10,7 @@ pytest-cov = "*"
 pytest-watch = "*"
 
 [packages]
+pytest-watch = "*"
 
 [requires]
 python_version = "3.7"

@@ -10,6 +10,12 @@ class Node():
         self.left = None
         self.right = None
 
+    def __repr__(self):
+        return '__repr__ : Node with ' + str(self.data) + ' value.'
+
+    def __str__(self):
+        return '__str__ : Node with ' + str(self.data) + ' value.'
+
 
 class BinaryTree():
     """
@@ -78,6 +84,9 @@ class BinaryTree():
 
         return output_array
 
+    def __repr__(self):
+        return 'THIS IS A TREE with ' + str(self.root) + ' at the root.'
+
 
 class BinarySearchTree(BinaryTree):
     """
@@ -131,3 +140,32 @@ class BinarySearchTree(BinaryTree):
                 return self.contains(data, curr.right)
 
         return False
+
+
+def fizz_buzz_tree(tree):
+    """
+
+    """
+    print(tree.root.data)
+    curr = tree.root
+
+    def _replace(node):
+        """
+
+        """
+        if node.data % 15 == 0:
+            node.data = 'Fizz-Buzz'
+        elif node.data % 5 == 0:
+            node.data = 'Buzz'
+        elif node.data % 3 == 0:
+            node.data = 'Fizz'
+
+        if node.left:
+            fizz_buzz_tree(node.left)
+
+        if node.right:
+            fizz_buzz_tree(node.right)
+
+    _replace(curr)
+
+    return tree
