@@ -11,6 +11,46 @@ class Node():
         self.right = None
 
 
+class Queue():
+    """
+    Class to generate and modify a new Queue.
+    """
+    front = None
+    rear = None
+
+    def enqueue(self, node):
+        """
+        Method to add node at the *rear* of a queue.
+        """
+        if self.rear is None:
+            self.rear = node
+            self.front = node
+        else:
+            self.rear._next = node
+            self.rear = node
+
+    def dequeue(self):
+        """
+        Method to remove a node from *front* of queue and return that node.
+        """
+        if self.front is not None:
+            current = self.front
+            self.front = self.front._next
+            current._next = None
+            return current
+        else:
+            return None
+
+    def peek(self):
+        """
+        Method to see if there is a node in a queue and if so, return it.
+        """
+        if self.front is not None:
+            return self.front
+        else:
+            return None
+
+
 class BinaryTree():
     """
     Class to create a binary tree.
@@ -77,6 +117,12 @@ class BinaryTree():
         output_array.append(curr.data)
 
         return output_array
+
+    def breadth_first(self):
+        """
+
+        """
+        q = 
 
 
 class BinarySearchTree(BinaryTree):
