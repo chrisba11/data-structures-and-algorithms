@@ -161,10 +161,10 @@ def fizz_buzz_tree(tree):
             node.data = 'Fizz'
 
         if node.left:
-            fizz_buzz_tree(node.left)
+            _replace(node.left)
 
         if node.right:
-            fizz_buzz_tree(node.right)
+            _replace(node.right)
 
     _replace(curr)
 
