@@ -141,6 +141,30 @@ class BinaryTree():
 
         return x
 
+    def find_maximum_value(self):
+        """
+
+        """
+        self.max = 0
+
+        def _update_max(node):
+            """
+            For this method to work, all nodes must have integer values in their *data* attributes.
+            """
+            if node.data > self.max:
+                self.max = node.data
+
+            if node.left is not None:
+                _update_max(node.left)
+
+            if node.right is not None:
+                _update_max(node.right)
+
+        if self.root:
+            _update_max(self.root)
+
+        return self.max
+
 
 class BinarySearchTree(BinaryTree):
     """
