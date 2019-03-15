@@ -28,3 +28,17 @@ def test_hash_exists():
 def test_has_array_of_1024():
     ht = Hashtable()
     assert len(ht._array) == 1024
+
+
+def test_add_one():
+    ht = Hashtable()
+    ht.add('test', 'object')
+    assert ht._array[ht.hash('test')].head.data == ('test', 'object')
+
+
+def test_add_two_to_same_index():
+    ht = Hashtable()
+    ht.add('test', 'object')
+    ht.add('test', 'array')
+    assert ht._array[ht.hash('test')].head.data == ('test', 'array')
+    assert ht._array[ht.hash('test')].head._next.data == ('test', 'object')
