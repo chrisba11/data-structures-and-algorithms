@@ -47,3 +47,9 @@ def test_add_two_to_same_index():
 def test_hash_is_same_each_time():
     ht = Hashtable()
     assert ht.hash('test') == ht.hash('test')
+
+
+def test_contains_true():
+    ht = Hashtable()
+    ht.add('test', 'object')
+    assert ht.contains('test') is True

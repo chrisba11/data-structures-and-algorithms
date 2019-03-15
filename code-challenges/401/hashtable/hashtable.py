@@ -14,10 +14,34 @@ class Hashtable:
         self._array[index].insert((key, value))
 
     def get(self, key):
-        pass
+        index = self.hash(key)
+        matches_array = []
+        if self._array[index].head:
+            current = self._array[index].head
+            while current:
+                if current.data[0] == key:
+                    matches_array.append(current.data[1])
+                else:
+                    current = current._next
+
+        # matches_string = ''
+        # while len(matches_array) > 1:
+        #     for m in matches_array:
+        #         matches_string += matches_array.pop() + ', '
+        # matches_string += matches_array.pop()
+
+        return matches_array
 
     def contains(self, key):
-        pass
+        index = self.hash(key)
+        if self._array[index].head:
+            current = self._array[index].head
+            while current:
+                if current.data[0] == key:
+                    return True
+                else:
+                    current = current._next
+        return False
 
     def hash(self, key):
         index = int(str(key), 36) * 317 % 1024
@@ -159,9 +183,14 @@ if __name__ == "__main__":
     ht.add('potato', 'bagel')
     ht.add('soup', 'dumpling')
     ht.add('soup', 'pickles')
-    print(ht.hash('soup'))
 
-    print(ht._array[ht.hash('soup')].head.data[0])
-    print(ht._array[ht.hash('soup')].head.data[1])
-    print(ht._array[ht.hash('soup')].head._next.data[0])
-    print(ht._array[ht.hash('soup')].head._next.data[1])
+    print('get "soup": ', ht.get('soup'))
+
+    print(ht.contains('soup'))
+    print(ht.contains('soupx'))
+    # ht.add('soup', 'pickles')
+
+    # print(ht._array[ht.hash('soup')].head.data[0])
+    # print(ht._array[ht.hash('soup')].head.data[1])
+    # print(ht._array[ht.hash('soup')].head._next.data[0])
+    # print(ht._array[ht.hash('soup')].head._next.data[1])
