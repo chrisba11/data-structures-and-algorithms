@@ -42,3 +42,8 @@ def test_add_two_to_same_index():
     ht.add('test', 'array')
     assert ht._array[ht.hash('test')].head.data == ('test', 'array')
     assert ht._array[ht.hash('test')].head._next.data == ('test', 'object')
+
+
+def test_hash_is_same_each_time():
+    ht = Hashtable()
+    assert ht.hash('test') == ht.hash('test')
