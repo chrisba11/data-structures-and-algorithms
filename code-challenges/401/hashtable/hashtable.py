@@ -15,13 +15,22 @@ class Hashtable:
 
     def get(self, key):
         index = self.hash(key)
+        matches_array = []
         if self._array[index].head:
             current = self._array[index].head
             while current:
                 if current.data[0] == key:
-                    return current.data[1]
+                    matches_array.append(current.data[1])
+                    current = current._next
                 else:
                     current = current._next
+        matches_string = ''
+        while len(matches_array) > 1:
+            for m in matches_array:
+                matches_string += matches_array.pop() + ' | '
+        matches_string += matches_array.pop()
+
+        return matches_string
 
     def contains(self, key):
         index = self.hash(key)
@@ -178,11 +187,3 @@ if __name__ == "__main__":
     print('get "soup": ', ht.get('soup'))
 
     print(ht.contains('soup'))
-    print(ht.contains('soupx'))
-    # ht.add('soup', 'pickles')
-
-
-    # print(ht._array[ht.hash('soup')].head.data[0])
-    # print(ht._array[ht.hash('soup')].head.data[1])
-    # print(ht._array[ht.hash('soup')].head._next.data[0])
-    # print(ht._array[ht.hash('soup')].head._next.data[1])

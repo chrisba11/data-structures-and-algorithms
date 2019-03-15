@@ -53,3 +53,23 @@ def test_contains_true():
     ht = Hashtable()
     ht.add('test', 'object')
     assert ht.contains('test') is True
+
+
+def test_contains_false():
+    ht = Hashtable()
+    ht.add('potato', 'object')
+    assert ht.contains('test') is False
+
+
+def test_get_one_key():
+    ht = Hashtable()
+    ht.add('test', 'object')
+    assert ht.get('test') == 'object'
+
+
+def test_get_three_of_same_key():
+    ht = Hashtable()
+    ht.add('test', 'object')
+    ht.add('test', 'thingy')
+    ht.add('test', 'bobcat')
+    assert ht.get('test') == 'object | thingy | bobcat'
