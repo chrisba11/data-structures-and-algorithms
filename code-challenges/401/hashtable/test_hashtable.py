@@ -73,3 +73,11 @@ def test_get_three_of_same_key():
     ht.add('test', 'thingy')
     ht.add('test', 'bobcat')
     assert ht.get('test') == 'object | thingy | bobcat'
+
+
+def test_get_three_of_same_key_integer_values():
+    ht = Hashtable()
+    ht.add('test', 1)
+    ht.add('test', 2)
+    ht.add('test', 3)
+    assert ht.get('test') == '1 | 2 | 3'

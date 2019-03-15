@@ -1,19 +1,26 @@
 class Hashtable:
     """
-
+    Class to create and modify a hashtable.
     """
     def __init__(self):
         """
-
+        Initializes a hashtable array with a linked list bucket in each of the 1024 indices.
         """
         bucket = LinkedList()
         self._array = [bucket] * 1024
 
     def add(self, key, value):
+        """
+        Adds a key-value pair to a hashtable.
+        """
         index = self.hash(key)
         self._array[index].insert((key, value))
 
     def get(self, key):
+        """
+        Takes in a key and returns value of a key-value pair. If there are multiple matches for the key,
+        return is a string of the values with each value separated by ' | '.
+        """
         index = self.hash(key)
         matches_array = []
         if self._array[index].head:
@@ -27,12 +34,15 @@ class Hashtable:
         matches_string = ''
         while len(matches_array) > 1:
             for m in matches_array:
-                matches_string += matches_array.pop() + ' | '
-        matches_string += matches_array.pop()
+                matches_string += str(matches_array.pop()) + ' | '
+        matches_string += str(matches_array.pop())
 
         return matches_string
 
     def contains(self, key):
+        """
+        Returns True if key is found in hashtable, False if not.
+        """
         index = self.hash(key)
         if self._array[index].head:
             current = self._array[index].head
@@ -44,6 +54,9 @@ class Hashtable:
         return False
 
     def hash(self, key):
+        """
+        Takes in a key and hashes it to produce an array index between 0 and 1024.
+        """
         index = int(str(key), 36) * 317 % 1024
         return index
 
