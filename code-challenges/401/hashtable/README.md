@@ -1,4 +1,4 @@
-# Stacks and Queues
+# Hashtable
 
 ## Challenge
 - Implement a Hashtable with the following methods:
