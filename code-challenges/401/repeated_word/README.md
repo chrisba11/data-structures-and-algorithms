@@ -1,19 +1,15 @@
 # Repeated Word
-<!-- This function takes in a tree and replaces all numbers divisible by 3 with 'Fizz', all numbers divisible by 5 with 'Buzz' and all numbers divisible by 3 and 5 with 'Fizz-Buzz'. It then returns the modified tree. -->
+This function takes in a string and checks to see if any of the words are repeated. If there is a repeat, it will return a string of the first word that is repeated. If there are no repeats, it will return False.
 
 ## Challenge
-<!-- - Write a function called FizzBuzzTree which takes a tree as an argument.
-- Without utilizing any of the built-in methods available to your language, determine weather or not the value of each node is divisible by 3, 5 or both, and change the value of each of the nodes:
-- If the value is divisible by 3, replace the value with “Fizz”
-- If the value is divisible by 5, replace the value with “Buzz”
-- If the value is divisible by 3 and 5, replace the value with “FizzBuzz”
-- Return the tree with its new values. -->
+- Write a function that accepts a lengthy string parameter.
+- Without utilizing any of the built-in library methods available to your language, return the first word to occur more than once in that provided string.
 
 ## Approach
-<!-- I traversed the tree in a pre-order and checked the values to see if they fit the requirements, if so, I replaced the value and then checked the children, if they existed and recursed. -->
+I split the input string into an array so I could iterate through it with each word. I instantiated a binary search tree with the root set to the first element in the array. I created a function that compares the next word with the existing words in the tree using a pre-order traversal. If the values don't match on the root, it calls itself recursively using the left (if it exists) and the right (if it exists). If a match is found, it returns that match. If no match is found, it will return False.
 
 ## Efficiency
-<!-- Time O(n) Space O(n) -->
+BigO of time is O(n). BigO of space is O(1).
 
 ## Solution
 ![repeated_word image](../assets/repeated_word.jpg)
