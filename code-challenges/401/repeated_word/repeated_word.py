@@ -2,6 +2,10 @@ from tree.tree import BinarySearchTree, Node
 
 
 def repeated_word(str):
+    """
+    Takes in a string and returns the first repeated word in the string.
+    If there are no repeated words, it will return False.
+    """
     tree = BinarySearchTree()
     arr = str.split(' ')
     root_node = Node(arr[0])
@@ -9,6 +13,11 @@ def repeated_word(str):
     curr = tree.root
 
     def _check(tree_node, new_node):
+        """
+        Private function to check if new node's value is equal to any nodes in the BST.
+        If it matches, it will return that value. If it doesn't match, it will add the node to the tree.
+        """
+
         if new_node.data == tree_node.data:
             return new_node.data
 
