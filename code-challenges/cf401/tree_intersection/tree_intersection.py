@@ -3,7 +3,7 @@ from ..hashtable.hashtable import Hashtable
 
 def tree_intersection(bt1, bt2):
     """
-
+    Takes in 2 binary trees and returns a list of all matching values contained in the `data` property the tree nodes.
     """
 
     ht = Hashtable()
@@ -11,7 +11,7 @@ def tree_intersection(bt1, bt2):
 
     def _tree_table(curr):
         """
-
+        Takes in a node and adds it's `data` property as a key and value to a hash table.
         """
         if curr:
             if curr.data:
@@ -25,7 +25,7 @@ def tree_intersection(bt1, bt2):
 
     def _tree_check(curr):
         """
-
+        Takes in a node and checks to see if the hash table has a key that matches the node's `data` property.
         """
         if curr:
             if ht.contains(curr.data):

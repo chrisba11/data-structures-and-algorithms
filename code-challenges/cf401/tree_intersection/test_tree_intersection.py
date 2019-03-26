@@ -67,3 +67,20 @@ def test_second_tree_empty():
     bt1.add(4)
 
     assert tree_intersection(bt1, bt2) == []
+
+
+def test_left_and_right():
+    bt1 = BinarySearchTree()
+    bt2 = BinarySearchTree()
+
+    bt1.add(4)
+    bt1.add(2)
+    bt1.add(3)
+    bt1.add(4)
+
+    bt2.add(4)
+    bt2.add(2)
+    bt2.add(3)
+    bt2.add(4)
+
+    assert tree_intersection(bt1, bt2) == [4, 2, 3, 4]
