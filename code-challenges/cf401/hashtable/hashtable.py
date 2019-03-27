@@ -44,7 +44,7 @@ class Hashtable:
         Returns True if key is found in hashtable, False if not.
         """
         index = self.hash(key)
-        if self._array[index].head:
+        if self._array[index].head:x
             current = self._array[index].head
             while current:
                 if current.data[0] == key:
