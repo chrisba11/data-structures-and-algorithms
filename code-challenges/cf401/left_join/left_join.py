@@ -1,4 +1,7 @@
 def left_join(ht1, ht2):
+    """
+    Takes in two hashtables and returns a dictionary representing a left join of the two hashtables.
+    """
     join_dict = {}
 
     for bucket in ht1._array:

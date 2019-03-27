@@ -12,12 +12,14 @@ This function takes in two hashtables and returns a dictionary representing a le
 
 ## Approach
 - I iterated through the first hashtable, pushing the data from any buckets containing nodes into a new dictionary.
-- In the dictionary, the keys are the node.data[0], and the value of each key is node.data[1].
-- I then iterated through the 
+    - In the dictionary, the keys are the node.data[0], and the value of each key is node.data[1].
+- I then iterated through the dictionary and checked to see if the second hashtable contained any of they keys in the dictionary.
+    - If so, I append the value at that key in the hashtable to the list at that value in the key of the dictionary.
+    - If not, I append None to the list at that value in the key of the dictionary.
 
 ## Efficiency
-- BigO of time is O(n), since it has to add each of the first tree's node values to the hashtable and it has to run through every node of the second tree to see if there's a match.
-- BigO of space is O(n), since we are pushing the value from each node of the first tree into a hashtable and generating an array of matching values.
+- BigO of time is O(n).
+- BigO of space is O(n).
 
 ## Solution
 ![left_join image](../assets/left_join.jpg)
