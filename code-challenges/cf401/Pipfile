@@ -8,6 +8,7 @@ pep8 = "*"
 pytest = "*"
 pytest-cov = "*"
 pytest-watch = "*"
+numpy = "*"
 
 [packages]
 pytest-watch = "*"
