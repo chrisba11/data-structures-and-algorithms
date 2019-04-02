@@ -1,6 +1,7 @@
 def insertion_sort(list):
     """
-    Takes in a list and sorts the list using an insertion sort method. Modifies the list in place, but returns it for convenience.
+    Takes in a list and sorts the list using an insertion sort method.
+    Modifies the list in place, but returns it for convenience.
     """
     round_number = 1
     curr = round_number
