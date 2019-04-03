@@ -3,11 +3,23 @@ Funtion to sort an array by splitting the size of the sorted items down to the s
 
 ## Challenge
 - Write a function that accepts an array of unsorted integers, and returns a sorted array by a recursive mergesort algorithm.
+
 ## Approach
-- I am still working out my approach, but I've started by creating 4 variables; front_1, end_1, front_2, end_2. Front_1 and end_1 represent the first half of the array and front_2 and end_2 represent the 2nd half of the array. I will fun the method recursively until only 1 element is in each array. Then I will compare front_1 and front_2 and see which is greater and swap them. Then I will step through the 
+- If the list contains one item or less, I just return the list.
+- Otherwise, I find the middle, and make variables for the left half and the right half.
+- Then I recurse the function using those halves.
+- Then I return an internal function call passing in the returns of the recursed halves.
+- The internal function is creating an empty list and two counter variables.
+- While each counter variable is less than the length of its respective list, I compare the lists at the index of their respective counter.
+- Whichever value is less gets pushed into the output array and then that counter is incremented.
+- Once one of the counters reaches the length of its list, I append the rest of both lists to the end of the output list and return the output list.
 
 ## Efficiency
-To be determined.
+Time O(n*log(n))
+Space O(n)
+
+## Solution
+![merge_sort image](../assets/merge_sort.jpg)
 
 
 

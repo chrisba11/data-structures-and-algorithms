@@ -25,11 +25,6 @@ def test_mixed_string_array_returns_sorted_array():
     assert merge_sort(mixed_list) == sorted_list
 
 
-def test_modifies_in_place():
-    rand = [i for i in np.random.randint(1, 21, 20)]
-    assert merge_sort(rand) == rand
-
-
 def test_empty_array():
     assert merge_sort([]) == []
 

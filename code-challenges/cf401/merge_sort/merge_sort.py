@@ -3,6 +3,7 @@ def merge_sort(list):
     Takes in a list and sorts it using merge sort logic. Returns the list.
     """
     if len(list) <= 1:
+        print(list)
         return list
 
     mid = len(list) // 2
@@ -20,7 +21,7 @@ def merge_sort(list):
         count_one = 0
         count_two = 0
 
-        while count_one < len(list_one) and count_two < len(count_two):
+        while count_one < len(list_one) and count_two < len(list_two):
             if list_one[count_one] < list_two[count_two]:
                 output.append(list_one[count_one])
                 count_one += 1
