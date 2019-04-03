@@ -95,3 +95,9 @@ class Queue():
             return self.front.data
         else:
             return self.empty
+
+    def __repr__(self):
+        return f'<REPR: Queue Object with {self.front} at the front>'
+
+    def __str__(self):
+        return f'Queue with {self.front} at the front and {self.rear} at the rear.'
