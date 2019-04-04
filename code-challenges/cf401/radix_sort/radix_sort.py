@@ -3,7 +3,8 @@ from ..stacks_and_queues.stacks_and_queues import Queue, Node
 
 def radix_sort(list):
     """
-    Takes in a list and returns a new sorted version of the same list using a radix sort method.
+    Takes in a list and returns a new sorted version
+    of the same list using a radix sort method.
     """
     queues = [Queue() for i in range(10)]
     max_val = max(list) if len(list) > 0 else 0
@@ -12,7 +13,9 @@ def radix_sort(list):
 
     def _radix_sort(list):
         """
-        This function is what is called recursively to sort the list by ones, tens, hundreds, etc. each time it is called.
+        This function is what is called recursively to sort
+        the list by ones, tens, hundreds, etc. each time
+        it is called.
         """
         nonlocal iterations
         nonlocal loop_num
