@@ -18,7 +18,8 @@ def test_empty():
 def test_insert_one():
     """
     Can properly insert one item into the linked list
-    The head property will properly point to the first node in the linked list
+    The head property will properly point to the
+    first node in the linked list
     """
     courses = LinkedList()
     courses.insert('Code 201')
@@ -40,7 +41,8 @@ def test_insert_two():
 
 def test_includes():
     """
-    Will return true when finding a value within the linked list that exists
+    Will return true when finding a value within
+    the linked list that exists
     """
     courses = LinkedList()
     courses.insert('Code 201')
@@ -52,7 +54,8 @@ def test_includes():
 
 def test_not_inlude():
     """
-    Will return false when searching for a value in the linked list that does not exist
+    Will return false when searching for a value in the
+    linked list that does not exist
     """
     courses = LinkedList()
     courses.insert('Code 201')
@@ -64,7 +67,8 @@ def test_not_inlude():
 
 def test_print():
     """
-    Can properly return a collection of all the values that exist in the linked list
+    Can properly return a collection of all the values that
+    exist in the linked list
     """
     courses = LinkedList()
     courses.insert('Code 401: Python')
@@ -73,7 +77,8 @@ def test_print():
     courses.insert('Code 102')
     courses.insert('Code 101')
 
-    assert courses.print() == 'Code 101, Code 102, Code 201, Code 301, Code 401: Python'
+    assert courses.print() == """Code 101, Code 102, Code 201,
+        Code 301, Code 401: Python"""
 
 
 def test_append():
@@ -100,12 +105,14 @@ def test_add_before():
     courses.append('Code 401: Python')
     courses.add_before('Code 401: Python', 'Code 301')
 
-    assert courses.print() == 'Code 101, Code 102, Code 201, Code 301, Code 401: Python'
+    assert courses.print() == """Code 101, Code 102, Code 201,
+        Code 301, Code 401: Python"""
 
 
 def test_add_before_first():
     """
-    Can add a new node before the first node, if the first node value matches specified value.
+    Can add a new node before the first node,
+    if the first node value matches specified value.
     """
     courses = LinkedList()
     courses.append('Code 101')
@@ -114,7 +121,8 @@ def test_add_before_first():
     courses.append('Code 401: Python')
     courses.add_before('Code 101', 'Code 301')
 
-    assert courses.print() == 'Code 301, Code 101, Code 102, Code 201, Code 401: Python'
+    assert courses.print() == """Code 301, Code 101, Code 102,
+        Code 201, Code 401: Python"""
 
 
 def test_add_after():
@@ -128,12 +136,14 @@ def test_add_after():
     courses.append('Code 401: Python')
     courses.add_after('Code 201', 'Code 301')
 
-    assert courses.print() == 'Code 101, Code 102, Code 201, Code 301, Code 401: Python'
+    assert courses.print() == '''Code 101, Code 102, Code 201,
+        Code 301, Code 401: Python'''
 
 
 def test_add_after_last():
     """
-    Can add a new node after the last node, if the last node value matches specified value.
+    Can add a new node after the last node,
+    if the last node value matches specified value.
     """
     courses = LinkedList()
     courses.append('Code 101')
@@ -142,7 +152,8 @@ def test_add_after_last():
     courses.append('Code 401: Python')
     courses.add_after('Code 401: Python', 'Code 301')
 
-    assert courses.print() == 'Code 101, Code 102, Code 201, Code 401: Python, Code 301'
+    assert courses.print() == '''Code 101, Code 102, Code 201,
+        Code 401: Python, Code 301'''
 
 
 def test_0_from_end():
@@ -175,7 +186,8 @@ def test_2_from_end():
 
 def test_k_from_end_k_greater_than_length():
     """
-    Will return an Exception if the k value is greater than the number of nodes.
+    Will return an Exception if the k value is
+    greater than the number of nodes.
     """
     courses = LinkedList()
     courses.append('Code 101')
