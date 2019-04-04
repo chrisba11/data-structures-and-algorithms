@@ -57,15 +57,12 @@ class Queue():
     """
     Class to generate and modify a new Queue.
     """
-
     front = None
     rear = None
-    empty = 'Empty Queue'
 
-    def enqueue(self, new_data):
+    def nq(self, new_data):
         """
-        Method to add a new node at the *rear* of a queue and return the value of that node's *data* attribute,
-        which will be equal to *new_data*.
+        Method to add node at the *rear* of a queue.
         """
         new_node = Node(new_data)
         if self.rear is None:
@@ -75,23 +72,31 @@ class Queue():
             self.rear._next = new_node
             self.rear = new_node
 
-    def dequeue(self):
+    def dq(self):
         """
-        Method to remove a node from *front* of queue and return the value of that node's *data* attribute.
+        Method to remove a node from *front* of queue and return that node.
         """
         if self.front is not None:
             current = self.front
             self.front = self.front._next
             current._next = None
+            if self.front is None:
+                self.rear = None
             return current.data
         else:
-            return self.empty
+            return None
 
     def peek(self):
         """
-        Method to return the value of the front node's *data* attribute.
+        Method to see if there is a node in a queue and if so, return it.
         """
         if self.front is not None:
             return self.front.data
         else:
-            return self.empty
+            return None
+
+    def __repr__(self):
+        return f'<REPR: Queue Object with {self.front} at the front>'
+
+    def __str__(self):
+        return f'Queue with {self.front} at the front and {self.rear} at the rear.'
