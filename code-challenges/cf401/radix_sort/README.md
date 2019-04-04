@@ -1,4 +1,4 @@
-# Merge Sort
+# Radix Sort
 
 
 ## Challenge
