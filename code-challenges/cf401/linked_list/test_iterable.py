@@ -73,7 +73,7 @@ def test_linked_list_filter():
     assert consonants == ['b', 'c', 'd', 'f', 'g']
 
 
-def test_append_operator():
+def test_append_operator_with_string_val():
     animals = LinkedList()
 
     animals += 'giraffe'
@@ -81,8 +81,23 @@ def test_append_operator():
     assert list(animals) == ['giraffe']
 
 
-@pytest.mark.skip
-def test_concat():
+def test_append_operator_with_int_val():
+    animals = LinkedList()
+
+    animals += 32
+
+    assert list(animals) == [32]
+
+
+def test_append_operator_with_list_val():
+    animals = LinkedList()
+
+    animals += ['giraffe', 'lion', 'cheeta']
+
+    assert list(animals) == ['giraffe', 'lion', 'cheeta']
+
+
+def test_concat_two_linked_lists():
     montagues = LinkedList(['Romeo', 'Benvolio'])
 
     capulets = LinkedList(['Juliet', 'Tybalt'])
@@ -90,5 +105,29 @@ def test_concat():
     tutti = montagues + capulets
 
     assert len(list(tutti)) == 4
+
+    assert len(list(montagues)) == 2
+
+
+def test_concat_ll_and_list():
+    montagues = LinkedList(['Romeo', 'Benvolio'])
+
+    capulets = ['Juliet']
+
+    tutti = montagues + capulets
+
+    assert len(list(tutti)) == 3
+
+    assert len(list(montagues)) == 2
+
+
+def test_concat_ll_and_str():
+    montagues = LinkedList(['Romeo', 'Benvolio'])
+
+    capulets = 'Juliet'
+
+    tutti = montagues + capulets
+
+    assert len(list(tutti)) == 3
 
     assert len(list(montagues)) == 2

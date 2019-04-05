@@ -10,7 +10,11 @@ class LinkedList():
     def __init__(self, arg=None):
         self.head = None
         if arg is not None:
-            self.append(arg)
+            if hasattr(arg, '__iter__') and not isinstance(arg, str):
+                for i in arg:
+                    self.append(i)
+            else:
+                self.append(arg)
 
     def insert(self, new_data):
         """
@@ -137,8 +141,28 @@ class LinkedList():
             yield current.data
             current = current.nxt
 
+    def __add__(self, val):
+        output = LinkedList()
+
+        for i in self:
+            output.append(i)
+
+        if hasattr(val, '__iter__') and not isinstance(val, str):
+            for i in val:
+                output.append(i)
+        else:
+            output.append(val)
+
+        return output
+
     def __iadd__(self, val):
-        return self.append(val)
+        if hasattr(val, '__iter__') and not isinstance(val, str):
+            for i in val:
+                self.append(i)
+        else:
+            self.append(val)
+
+        return self
 
 
 class Node():
