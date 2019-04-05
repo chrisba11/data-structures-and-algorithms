@@ -1,3 +1,6 @@
+from ..stacks_and_queues.stacks_and_queues import Queue
+
+
 class Node():
     """
     Class to create a node with tree-like attributes.
@@ -10,55 +13,6 @@ class Node():
         self.left = None
         self.right = None
         self._next = None
-
-
-class Queue():
-    """
-    Class to generate and modify a new Queue.
-    """
-    front = None
-    rear = None
-
-    def nq(self, new_data):
-        """
-        Method to add node at the *rear* of a queue.
-        """
-        new_node = Node(new_data)
-        if self.rear is None:
-            self.rear = new_node
-            self.front = new_node
-        else:
-            self.rear._next = new_node
-            self.rear = new_node
-
-    def dq(self):
-        """
-        Method to remove a node from *front* of queue and return that node.
-        """
-        if self.front is not None:
-            current = self.front
-            self.front = self.front._next
-            current._next = None
-            if self.front is None:
-                self.rear = None
-            return current.data
-        else:
-            return None
-
-    def peek(self):
-        """
-        Method to see if there is a node in a queue and if so, return it.
-        """
-        if self.front is not None:
-            return self.front.data
-        else:
-            return None
-
-    def __repr__(self):
-        return f'<REPR: Queue Object with {self.front} at the front>'
-
-    def __str__(self):
-        return f'Queue with {self.front} at the front and {self.rear} at the rear.'
 
 
 class BinaryTree():
