@@ -10,8 +10,13 @@ class Graph:
         self._table[data] = {}
 
     def add_edge(self, vert_one, vert_two, weight=0):
-        self._table[vert_one][vert_two] = weight
-        self._table[vert_two][vert_one] = weight
+        if vert_one in self._table and vert_two in self._table:
+            self._table[vert_one][vert_two] = weight
+            self._table[vert_two][vert_one] = weight
+        elif vert_one not in self._table:
+            raise AttributeError(vert_one + ' was not found in graph.')
+        else:
+            raise AttributeError(vert_two + ' was not found in graph.')
 
 
 

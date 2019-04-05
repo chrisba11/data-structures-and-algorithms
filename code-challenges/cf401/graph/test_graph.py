@@ -58,3 +58,15 @@ def test_add_two_edges():
     assert g._table['potato'] == {'salad': 12, 'macaroni': 6}
     assert g._table['salad'] == {'potato': 12}
     assert g._table['macaroni'] == {'potato': 6}
+
+
+def test_add_two_edges_one_not_in_table():
+    with pytest.raises(AttributeError) as exc_info:
+        g = Graph()
+        g.add_vertex('potato')
+        g.add_vertex('salad')
+
+        g.add_edge('potato', 'salad', 12)
+        g.add_edge('potato', 'macaroni', 6)
+
+    assert 'macaroni was not found' in str(exc_info.value)
