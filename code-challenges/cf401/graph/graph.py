@@ -3,13 +3,15 @@ class Graph:
 
     """
     def __init__(self):
-        self._graph = {}
+        self._table = {}
 
     def add_vertex(self, data):
         vt = Vertex(data)
-        self._graph[data] = {}
+        self._table[data] = {}
 
-
+    def add_edge(self, vert_one, vert_two, weight=0):
+        self._table[vert_one][vert_two] = weight
+        self._table[vert_two][vert_one] = weight
 
 
 
@@ -20,7 +22,6 @@ class Vertex:
     def __init__(self, data):
         """
         Initializes an instance of a vertex with a *data*
-        attribute value equal to *data*.
+        attribute value equal to the argument passed in.
         """
         self.data = data
-        self.nxt = None
