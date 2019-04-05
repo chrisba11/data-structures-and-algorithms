@@ -19,16 +19,17 @@ class Queue():
     front = None
     rear = None
 
-    def nq(self, node):
+    def nq(self, new_data):
         """
         Method to add node at the *rear* of a queue.
         """
+        new_node = Node(new_data)
         if self.rear is None:
-            self.rear = node
-            self.front = node
+            self.rear = new_node
+            self.front = new_node
         else:
-            self.rear._next = node
-            self.rear = node
+            self.rear._next = new_node
+            self.rear = new_node
 
     def dq(self):
         """
@@ -40,7 +41,7 @@ class Queue():
             current._next = None
             if self.front is None:
                 self.rear = None
-            return current
+            return current.data
         else:
             return None
 
@@ -49,9 +50,15 @@ class Queue():
         Method to see if there is a node in a queue and if so, return it.
         """
         if self.front is not None:
-            return self.front
+            return self.front.data
         else:
             return None
+
+    def __repr__(self):
+        return f'<REPR: Queue Object with {self.front} at the front>'
+
+    def __str__(self):
+        return f'Queue with {self.front} at the front and {self.rear} at the rear.'
 
 
 class BinaryTree():
