@@ -141,6 +141,11 @@ class LinkedList():
             yield current.data
             current = current.nxt
 
+    def __next__(self):
+        current = self.head
+        if current:
+            yield current.nxt
+
     def __add__(self, val):
         output = LinkedList()
 

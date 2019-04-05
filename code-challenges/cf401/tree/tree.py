@@ -12,7 +12,7 @@ class Node():
         self.data = data
         self.left = None
         self.right = None
-        self._next = None
+        self.nxt = None
 
 
 class BinaryTree():
@@ -179,3 +179,4 @@ class BinarySearchTree(BinaryTree):
                 return self.contains(data, curr.right)
 
         return False
+

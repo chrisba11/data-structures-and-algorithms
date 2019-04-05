@@ -1,4 +1,5 @@
-from .misc import has_dupes, most_common_word, calculate, each_item
+from .misc import has_dupes
+# most_common_word, calculate, each_item
 import pytest
 
 
