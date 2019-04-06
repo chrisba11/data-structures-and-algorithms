@@ -70,3 +70,24 @@ def test_add_two_edges_one_not_in_table():
         g.add_edge('potato', 'macaroni', 6)
 
     assert 'macaroni was not found' in str(exc_info.value)
+
+
+def test_get_vertices():
+    g = Graph()
+    g.add_vertex('potato')
+    g.add_vertex('salad')
+    g.add_vertex('macaroni')
+
+    assert g.get_vertices() == ['potato', 'salad', 'macaroni']
+
+
+def test_get_neighbors():
+    g = Graph()
+    g.add_vertex('potato')
+    g.add_vertex('salad')
+    g.add_vertex('macaroni')
+
+    g.add_edge('potato', 'salad', 12)
+    g.add_edge('potato', 'macaroni', 6)
+
+    assert g.get_neighbors('potato') == {'salad': 12, 'macaroni': 6}

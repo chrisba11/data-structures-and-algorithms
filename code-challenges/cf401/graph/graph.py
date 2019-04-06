@@ -18,6 +18,16 @@ class Graph:
         else:
             raise AttributeError(vert_two + ' was not found in graph.')
 
+    def get_vertices(self):
+        output = []
+        for key in self._table:
+            output.append(key)
+        return output
+
+    def get_neighbors(self, vertex):
+        if vertex in self._table:
+            return self._table[vertex]
+
 
 
 class Vertex:
