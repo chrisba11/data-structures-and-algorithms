@@ -14,9 +14,9 @@ class Graph:
             self._table[vert_one][vert_two] = weight
             self._table[vert_two][vert_one] = weight
         elif vert_one not in self._table:
-            raise AttributeError(vert_one + ' was not found in graph.')
+            raise KeyError(vert_one + ' was not found in graph.')
         else:
-            raise AttributeError(vert_two + ' was not found in graph.')
+            raise KeyError(vert_two + ' was not found in graph.')
 
     def get_vertices(self):
         output = []
@@ -27,6 +27,8 @@ class Graph:
     def get_neighbors(self, vertex):
         if vertex in self._table:
             return self._table[vertex]
+        else:
+            raise KeyError(vertex + ' was not found in graph.')
 
 
 
