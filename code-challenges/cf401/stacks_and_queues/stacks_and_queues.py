@@ -7,7 +7,7 @@ class Node():
         Initializes an instance of a node with a *data* attribute value equal to *data*.
         """
         self.data = data
-        self._next = None
+        self.nxt = None
 
 
 class Stack():
@@ -27,7 +27,7 @@ class Stack():
         if self.top is None:
             self.top = new_node
         else:
-            new_node._next = self.top
+            new_node.nxt = self.top
             self.top = new_node
         return self.top.data
 
@@ -37,8 +37,8 @@ class Stack():
         """
         if self.top is not None:
             current = self.top
-            self.top = self.top._next
-            current._next = None
+            self.top = self.top.nxt
+            current.nxt = None
             return current.data
         else:
             return self.empty
@@ -69,7 +69,7 @@ class Queue():
             self.rear = new_node
             self.front = new_node
         else:
-            self.rear._next = new_node
+            self.rear.nxt = new_node
             self.rear = new_node
 
     def dq(self):
@@ -78,8 +78,8 @@ class Queue():
         """
         if self.front is not None:
             current = self.front
-            self.front = self.front._next
-            current._next = None
+            self.front = self.front.nxt
+            current.nxt = None
             if self.front is None:
                 self.rear = None
             return current.data
@@ -94,6 +94,12 @@ class Queue():
             return self.front.data
         else:
             return None
+
+    def __iter__(self):
+        current = self.front
+        while current:
+            yield current.data
+            current = current.nxt
 
     def __repr__(self):
         return f'<REPR: Queue Object with {self.front} at the front>'

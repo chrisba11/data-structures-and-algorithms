@@ -1,4 +1,4 @@
-from .binary_tree import BinarySearchTree
+from ..tree.tree import BinarySearchTree
 import pytest
 
 
@@ -12,12 +12,11 @@ def test_traverse():
     tree.add('apples')
     tree.add('cucumbers')
 
-    items = list(tree.traverse_in_order())
+    items = list(tree.in_order())
 
     assert items == ['apples', 'bananas', 'cucumbers']
 
 
-@pytest.mark.skip('pending')
 def test_traverse_for_loop():
     tree = BinarySearchTree()
     tree.add('bananas')
@@ -26,7 +25,7 @@ def test_traverse_for_loop():
 
     items = []
 
-    for item in tree.traverse_in_order():
+    for item in tree.in_order():
         items.append(item)
 
     assert items == ['apples', 'bananas', 'cucumbers']
