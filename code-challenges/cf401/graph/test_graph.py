@@ -81,6 +81,11 @@ def test_get_vertices():
     assert g.get_vertices() == ['potato', 'salad', 'macaroni']
 
 
+def test_get_vertices_none():
+    g = Graph()
+    assert g.get_vertices() is None
+
+
 def test_get_neighbors():
     g = Graph()
     g.add_vertex('potato')
@@ -98,3 +103,16 @@ def test_get_neighbors_not_in_graph():
         g = Graph()
         g.get_neighbors('macaroni')
     assert 'macaroni was not found' in str(exc.value)
+
+
+def test_size():
+    g = Graph()
+    g.add_vertex('potato')
+    g.add_vertex('salad')
+    g.add_vertex('macaroni')
+    assert g.size() is 3
+
+
+def test_size_empty():
+    g = Graph()
+    assert g.size() is 0
