@@ -31,3 +31,13 @@ def test_two_vertices_with_edge():
     g.add_vertex('mirrors')
     g.add_edge('smoke', 'mirrors')
     assert breadth_first(g, 'smoke') == ['smoke', 'mirrors']
+
+
+def test_three_vertices_with_edge_between_two():
+    g = Graph()
+    g.add_vertex('smoke')
+    g.add_vertex('mirrors')
+    g.add_vertex('burgers')
+    g.add_edge('smoke', 'mirrors')
+    assert breadth_first(g, 'mirrors') == ['mirrors', 'smoke']
+    assert breadth_first(g, 'burgers') == ['burgers']
