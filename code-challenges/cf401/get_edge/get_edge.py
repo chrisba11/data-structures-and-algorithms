@@ -2,6 +2,9 @@ from ..graph.graph import Graph
 
 
 def get_edge(graph, input_list):
+    """
+
+    """
     price = 0
 
     if len(input_list) < 2:
