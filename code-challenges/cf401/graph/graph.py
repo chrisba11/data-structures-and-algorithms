@@ -13,7 +13,6 @@ class Graph:
         Method to add a vertex (node) to a graph with the
         *data* attribute equal to the argument supplied.
         """
-        vt = Vertex(data)
         self._table[data] = {}
 
     def add_edge(self, vert_one, vert_two, weight=0):
