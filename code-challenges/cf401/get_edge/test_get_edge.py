@@ -28,10 +28,9 @@ def test_works_with_two_list_items():
     g.add_vertex('Sydney')
     g.add_vertex('Melbourne')
     g.add_edge('Sydney', 'Melbourne', 150)
-    assert get_edge(g, ['Sydney, Melbourne']) == (True, 151)
+    assert get_edge(g, ['Sydney', 'Melbourne']) == (True, 150)
 
 
-@pytest.mark.skip
 def test_works_with_multiple_list_items_false():
     g = Graph()
     g.add_vertex('Sydney')
@@ -41,10 +40,12 @@ def test_works_with_multiple_list_items_false():
     g.add_edge('Sydney', 'Melbourne', 150)
     g.add_edge('London', 'Melbourne', 800)
     g.add_edge('London', 'New York', 600)
-    assert get_edge(g, ['Sydney, Melbourne', 'New York']) == (False, 1)
+    assert get_edge(
+        g,
+        ['Sydney', 'Melbourne', 'New York']
+        ) == (False, 0)
 
 
-@pytest.mark.skip
 def test_works_with_multiple_list_items_true():
     g = Graph()
     g.add_vertex('Sydney')
@@ -54,4 +55,7 @@ def test_works_with_multiple_list_items_true():
     g.add_edge('Sydney', 'Melbourne', 150)
     g.add_edge('London', 'Melbourne', 800)
     g.add_edge('London', 'New York', 600)
-    assert get_edge(g, ['Sydney, Melbourne', 'London', 'New York']) == (True, 1551)
+    assert get_edge(
+        g,
+        ['Sydney', 'Melbourne', 'London', 'New York']
+        ) == (True, 1550)
