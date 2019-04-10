@@ -13,19 +13,17 @@ class Graph:
         Method to add a vertex (node) to a graph with the
         *data* attribute equal to the argument supplied.
         """
-        self._table[data] = {}
+        self._table[data] = {'visited': False, 'neighbors': {}}
 
     def add_edge(self, vert_one, vert_two, weight=0):
         """
         Adds an edge between two supplied vertices.
         """
         if vert_one in self._table and vert_two in self._table:
-            self._table[vert_one][vert_two] = weight
-            self._table[vert_two][vert_one] = weight
-        elif vert_one not in self._table:
-            raise KeyError(vert_one + ' was not found in graph.')
+            self._table[vert_one]['neighbors'][vert_two] = weight
+            self._table[vert_two]['neighbors'][vert_one] = weight
         else:
-            raise KeyError(vert_two + ' was not found in graph.')
+            return None
 
     def get_vertices(self):
         """
@@ -45,9 +43,9 @@ class Graph:
         Neighbors will be the keys and weights will be the values.
         """
         if vertex in self._table:
-            return self._table[vertex]
+            return self._table[vertex]['neighbors']
         else:
-            raise KeyError(vertex + ' was not found in graph.')
+            return None
 
     def size(self):
         """

@@ -61,15 +61,13 @@ def test_add_two_edges():
 
 
 def test_add_two_edges_one_not_in_table():
-    with pytest.raises(KeyError) as exc:
-        g = Graph()
-        g.add_vertex('potato')
-        g.add_vertex('salad')
+    g = Graph()
+    g.add_vertex('potato')
+    g.add_vertex('salad')
 
-        g.add_edge('potato', 'salad', 12)
-        g.add_edge('potato', 'macaroni', 6)
+    g.add_edge('potato', 'salad', 12)
 
-    assert 'macaroni was not found' in str(exc.value)
+    assert g.add_edge('potato', 'macaroni', 6) is None
 
 
 def test_get_vertices():
@@ -99,10 +97,8 @@ def test_get_neighbors():
 
 
 def test_get_neighbors_not_in_graph():
-    with pytest.raises(KeyError) as exc:
-        g = Graph()
-        g.get_neighbors('macaroni')
-    assert 'macaroni was not found' in str(exc.value)
+    g = Graph()
+    assert g.get_neighbors('macaroni') is None
 
 
 def test_size():
