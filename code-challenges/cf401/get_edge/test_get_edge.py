@@ -15,16 +15,14 @@ def test_works_with_empty_list():
     assert get_edge(g, []) == (False, 0)
 
 
-@pytest.mark.skip
 def test_works_with_single_item_in_list():
     g = Graph()
     g.add_vertex('Sydney')
     g.add_vertex('Melbourne')
     g.add_edge('Sydney', 'Melbourne', 150)
-    assert get_edge(g, ['Sydney']) == (False, 1)
+    assert get_edge(g, ['Sydney']) == (False, 0)
 
 
-@pytest.mark.skip
 def test_works_with_two_list_items():
     g = Graph()
     g.add_vertex('Sydney')
