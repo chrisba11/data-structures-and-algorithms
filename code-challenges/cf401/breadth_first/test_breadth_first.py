@@ -3,7 +3,7 @@ import pytest
 
 
 def test_exists():
-    assert BreadthFirstGraph().breadth_first
+    assert BreadthFirstGraph.breadth_first
 
 
 def test_empty_graph():
