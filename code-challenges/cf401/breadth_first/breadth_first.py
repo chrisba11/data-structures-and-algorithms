@@ -2,41 +2,44 @@ from ..graph.graph import Graph
 from ..stacks_and_queues.stacks_and_queues import Queue
 
 
-def breadth_first(graph, start_vertex):
+class BreadthFirstGraph(Graph):
     """
-    Takes in a graph and a starting vertex and traverses
-    the graph, returning a list of each vertex visited.
+    Extends Graph class to include a breadth first traversal
+    method.
     """
-    q = Queue()
-    output = []
 
-    if start_vertex in graph._table:
-        q.nq(start_vertex)
-        graph._table[start_vertex]['visited'] = True
-
-    def _traverse(graph):
+    def breadth_first(self, start_vertex):
         """
-        Dequeues a vertex and adds that vertex's neighbors to a
-        queue and then appends that vertex to the output list.
+        Takes in a graph and a starting vertex and traverses
+        the graph, returning a list of each vertex visited.
         """
-        nonlocal q
-        nonlocal output
+        q = Queue()
+        output = []
 
-        curr = q.dq()
-        if graph.get_neighbors(curr):
-            for item in graph.get_neighbors(curr):
+        if start_vertex in self._table:
+            q.nq(start_vertex)
+            self._table[start_vertex]['visited'] = True
 
-                if graph._table[item]['visited'] is False:
-                    q.nq(item)
-                    graph._table[item]['visited'] = True
+        def _traverse(self):
+            """
+            Dequeues a vertex and adds that vertex's neighbors to a
+            queue and then appends that vertex to the output list.
+            """
+            curr = q.dq()
+            if self.get_neighbors(curr):
+                for item in self.get_neighbors(curr):
 
-        output.append(curr)
+                    if self._table[item]['visited'] is False:
+                        q.nq(item)
+                        self._table[item]['visited'] = True
 
-    while q.peek():
-        _traverse(graph)
+            output.append(curr)
 
-    if graph.get_vertices():
-        for vertex in graph.get_vertices():
-            graph._table[vertex]['visited'] = False
+        while q.peek():
+            _traverse(self)
 
-    return output
+        if self.get_vertices():
+            for vertex in self.get_vertices():
+                self._table[vertex]['visited'] = False
+
+        return output

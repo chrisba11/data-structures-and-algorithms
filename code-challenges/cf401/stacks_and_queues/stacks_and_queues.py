@@ -4,7 +4,8 @@ class Node():
     """
     def __init__(self, data):
         """
-        Initializes an instance of a node with a *data* attribute value equal to *data*.
+        Initializes an instance of a node with a *data*
+        attribute value equal to *data*.
         """
         self.data = data
         self.nxt = None
@@ -16,11 +17,11 @@ class Stack():
     """
 
     top = None
-    empty = 'Empty Stack'
 
     def push(self, new_data):
         """
-        Method to add a new node at the top of a stack with a *data* attribute value equal to *new_data*.
+        Method to add a new node at the top of a stack with a
+        *data* attribute value equal to *new_data*.
         Returns *data* value.
         """
         new_node = Node(new_data)
@@ -33,7 +34,8 @@ class Stack():
 
     def pop(self):
         """
-        Method to remove the top node from a stack and return the value of its *data* attribute.
+        Method to remove the top node from a stack and return
+        the value of its *data* attribute.
         """
         if self.top is not None:
             current = self.top
@@ -41,16 +43,17 @@ class Stack():
             current.nxt = None
             return current.data
         else:
-            return self.empty
+            return None
 
     def peek(self):
         """
-        Method to return the value of the *data* attribute from the top node of a stack.
+        Method to return the value of the *data* attribute from
+        the top node of a stack.
         """
         if self.top is not None:
             return self.top.data
         else:
-            return self.empty
+            return None
 
 
 class Queue():
@@ -74,7 +77,8 @@ class Queue():
 
     def dq(self):
         """
-        Method to remove a node from *front* of queue and return that node.
+        Method to remove a node from *front* of queue and
+        return that node.
         """
         if self.front is not None:
             current = self.front
@@ -88,7 +92,8 @@ class Queue():
 
     def peek(self):
         """
-        Method to see if there is a node in a queue and if so, return it.
+        Method to see if there is a node in a queue and if so,
+        return it.
         """
         if self.front is not None:
             return self.front.data
@@ -105,4 +110,5 @@ class Queue():
         return f'<REPR: Queue Object with {self.front} at the front>'
 
     def __str__(self):
-        return f'Queue with {self.front} at the front and {self.rear} at the rear.'
+        return f'''Queue with {self.front} at the front and
+                {self.rear} at the rear.'''
