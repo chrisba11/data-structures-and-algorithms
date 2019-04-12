@@ -26,12 +26,8 @@ class DepthFirstGraph(Graph):
             Traverses the graph in a depth-first way recursively
             while there are items in the stack.
             """
-            nonlocal s
-            nonlocal output
-
             while s.peek():
                 curr = s.peek()
-                print(curr)
                 for v in self._table[curr]['neighbors']:
                     if self._table[v]['visited'] is False:
                         s.push(v)

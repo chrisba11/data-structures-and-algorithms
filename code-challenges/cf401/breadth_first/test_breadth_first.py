@@ -3,7 +3,7 @@ import pytest
 
 
 def test_exists():
-    assert BreadthFirstGraph.breadth_first
+    assert BreadthFirstGraph().breadth_first
 
 
 def test_empty_graph():
@@ -44,27 +44,19 @@ def test_three_vertices_with_edge_between_two():
 
 def test_several_vertices_with_edges():
     g = BreadthFirstGraph()
-    g.add_vertex('smoke')
-    g.add_vertex('mirrors')
-    g.add_vertex('burgers')
-    g.add_vertex('hot dog')
-    g.add_vertex('potato')
-    g.add_vertex('llama')
-    g.add_vertex('pickle')
-    g.add_edge('smoke', 'mirrors')
-    g.add_edge('smoke', 'burgers')
-    g.add_edge('smoke', 'hot dog')
-    g.add_edge('potato', 'burgers')
-    g.add_edge('potato', 'llama')
-    g.add_edge('pickle', 'burgers')
-    g.add_edge('llama', 'hot dog')
-    g.add_edge('pickle', 'mirrors')
-    assert g.breadth_first('burgers') == [
-        'burgers',
-        'smoke',
-        'potato',
-        'pickle',
-        'mirrors',
-        'hot dog',
-        'llama'
-        ]
+    g.add_vertex('A')
+    g.add_vertex('B')
+    g.add_vertex('C')
+    g.add_vertex('D')
+    g.add_vertex('E')
+    g.add_vertex('F')
+    g.add_vertex('G')
+    g.add_edge('A', 'B')
+    g.add_edge('A', 'C')
+    g.add_edge('A', 'D')
+    g.add_edge('E', 'C')
+    g.add_edge('E', 'F')
+    g.add_edge('G', 'C')
+    g.add_edge('F', 'D')
+    g.add_edge('G', 'B')
+    assert g.breadth_first('C') == ['C', 'A', 'E', 'G', 'B', 'D', 'F']

@@ -25,9 +25,6 @@ class BreadthFirstGraph(Graph):
             Dequeues a vertex and adds that vertex's neighbors to a
             queue and then appends that vertex to the output list.
             """
-            nonlocal q
-            nonlocal output
-
             curr = q.dq()
             if self.get_neighbors(curr):
                 for item in self.get_neighbors(curr):
