@@ -31,8 +31,8 @@ def test_add_one_edge_without_weight():
 
     g.add_edge('potato', 'salad')
 
-    assert g._table['potato'] == {'salad': 0}
-    assert g._table['salad'] == {'potato': 0}
+    assert g._table['potato']['neighbors'] == {'salad': 0}
+    assert g._table['salad']['neighbors'] == {'potato': 0}
 
 
 def test_add_one_edge_with_weight():
@@ -42,8 +42,8 @@ def test_add_one_edge_with_weight():
 
     g.add_edge('potato', 'salad', 12)
 
-    assert g._table['potato'] == {'salad': 12}
-    assert g._table['salad'] == {'potato': 12}
+    assert g._table['potato']['neighbors'] == {'salad': 12}
+    assert g._table['salad']['neighbors'] == {'potato': 12}
 
 
 def test_add_two_edges():
@@ -55,9 +55,9 @@ def test_add_two_edges():
     g.add_edge('potato', 'salad', 12)
     g.add_edge('potato', 'macaroni', 6)
 
-    assert g._table['potato'] == {'salad': 12, 'macaroni': 6}
-    assert g._table['salad'] == {'potato': 12}
-    assert g._table['macaroni'] == {'potato': 6}
+    assert g._table['potato']['neighbors'] == {'salad': 12, 'macaroni': 6}
+    assert g._table['salad']['neighbors'] == {'potato': 12}
+    assert g._table['macaroni']['neighbors'] == {'potato': 6}
 
 
 def test_add_two_edges_one_not_in_table():
