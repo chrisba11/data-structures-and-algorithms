@@ -20,11 +20,7 @@ class BreadthFirstGraph(Graph):
             q.nq(start_vertex)
             self._table[start_vertex]['visited'] = True
 
-        def _traverse(self):
-            """
-            Dequeues a vertex and adds that vertex's neighbors to a
-            queue and then appends that vertex to the output list.
-            """
+        while q.peek():
             curr = q.dq()
             if self.get_neighbors(curr):
                 for item in self.get_neighbors(curr):
@@ -34,9 +30,6 @@ class BreadthFirstGraph(Graph):
                         self._table[item]['visited'] = True
 
             output.append(curr)
-
-        while q.peek():
-            _traverse(self)
 
         if self.get_vertices():
             for vertex in self.get_vertices():
